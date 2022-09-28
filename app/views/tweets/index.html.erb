@@ -1,0 +1,19 @@
+<h1>ツイッター</h1>
+
+<% flash[:notice] %>
+
+<% @tweets.each do |tweet| %>
+    <p>
+    メッセージ：<%= tweet.message %>
+    <%= ((Time.current-tweet.tdate)/60).floor %>分前
+    <%= link_to '編集', "/tweets/#{tweet.id}/edit" %>
+    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+    <%= link_to '表示', "/tweets/#{tweet.id}" %>
+    </p>
+<% end %>
+
+<p><%= link_to '新規追加', '/tweets/new' %></p>
+
+<body bgcolor="#00ccff">
+
+</body>
